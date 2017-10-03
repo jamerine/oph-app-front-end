@@ -60,7 +60,7 @@ export default {
       filename        : 'chunk-manifest.json',
       manifestVariable: '__CHUNKS__',
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         'warnings'     : false,

@@ -5,7 +5,11 @@ require('babel/register')({
   stage     : 0,
 });
 
-var initter = require('./app/bundles/app/initters/server'),
-    config  = require('./config/server.app');
+// Middleware function of app bundle
+var initter = require('./app/bundles/app/initters/server');
+
+// Bundle Settings
+var config  = require('./config/server.app');
+
 
 require('./server')(initter, config);

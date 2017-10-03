@@ -1,6 +1,7 @@
 import React      from 'react';
 import Router     from 'react-router';
 import Location   from 'react-router/lib/Location';
+import serialize  from 'serialize-javascript;'
 import Jade       from 'jade';
 
 
@@ -26,9 +27,11 @@ export default (req, res, next, params) => {
 
       const chunks = __DEV__ ? {} : require('public/assets/chunk-manifest.json');
 
-      locals.chunks = JSON.stringify(chunks);
+      locals.chunks = serialize(chunks);
 
       const layout = `${process.cwd()}/app/bundles/${bundle}/layouts/Layout.jade`;
+
+
       const html   = Jade.compileFile(layout, { pretty: false })(locals);
 
       res.send(html);
